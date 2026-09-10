@@ -1,19 +1,19 @@
-roll_no = "102103456"
+roll_no = "1024170284"
 L = [int(ch) * 10 for ch in roll_no]
 
 # (i)
 print("L:", L)
 
 # (ii)
-L.append(45)  # adds 45 to the end of the list
+L.append(45)  
 print("After append:", L)
-L.insert(2, 88)  # inserts 88 at index 2, shifting remaining items right
+L.insert(2, 88)  
 print("After insert:", L)
 
 # (iii)
-L.remove(88)
+L.remove(88)  
 print("After remove:", L)
-L.pop()
+L.pop() 
 print("After pop:", L)
 
 # (iv)
@@ -27,6 +27,6 @@ print("First 3:", L[:3])
 print("Last 3:", L[-3:])
 
 # (vi)
-mean_val = sum(L) / len(L)
-filtered = [n for n in L if n > mean_val]
-print("Above average:", filtered)
+avg_val = sum(L) / len(L)
+above_avg = [x for x in L if x > avg_val]
+print("Above average:", above_avg)
