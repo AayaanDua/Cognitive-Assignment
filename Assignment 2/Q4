@@ -1,0 +1,27 @@
+digits = [int(ch) for ch in roll_no[:8]]
+A = {d * 7 for d in digits}
+B = {d * 9 for d in digits}
+print("A:", A)
+print("B:", B)
+
+# (vi)
+print("Union:", A.union(B))
+
+# (vii)
+print("Intersection:", A.intersection(B))
+
+# (viii)
+print("A - B:", A.difference(B))
+print("B - A:", B.difference(A))
+
+# (ix)
+print("Symmetric diff:", A.symmetric_difference(B))
+
+# (x)
+print("Is A subset of B:", A.issubset(B))
+print("Is B superset of A:", B.issuperset(A))
+
+# (xi)
+drop_val = int(input("Enter value to discard: "))
+A.discard(drop_val)
+print("A after discard:", A)
