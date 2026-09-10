@@ -1,0 +1,3 @@
+iris_modified = iris_df.drop(index=4)
+iris_modified = iris_modified.drop(iris_modified.columns[3], axis=1)
+print(iris_modified.head())
