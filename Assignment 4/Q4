@@ -1,0 +1,11 @@
+# (Q4)
+chosen_index = 0
+new_kw = input("Enter a new keyword to add to entry 0: ").strip()
+
+df.at[chosen_index, "keywords"] = (
+    df.at[chosen_index, "keywords"] + " " + new_kw
+)
+
+file_name = f"{roll_no}_faq_data.csv"
+df.to_csv(file_name, index=False)
+print(f"Saved knowledge base to {file_name}")
