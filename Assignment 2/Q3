@@ -1,36 +1,34 @@
 import random
 
-# Set random seed
-seed_val = 102103456
-random.seed(seed_val)
-
 # (i)
+random.seed(1024170284)
 numbers = [random.randint(100, 900) for _ in range(100)]
 
 # (ii)
-odd_list = [x for x in numbers if x % 2 != 0]
-print("Total odds:", len(odd_list))
-print("Odd values:", odd_list)
+odds = [n for n in numbers if n % 2 != 0]
+print("Total odds:", len(odds))
+print("Odd numbers:", odds)
 
 # (iii)
-even_list = [x for x in numbers if x % 2 == 0]
-print("Total evens:", len(even_list))
-print("Even values:", even_list)
+evens = [n for n in numbers if n % 2 == 0]
+print("Total evens:", len(evens))
+print("Even numbers:", evens)
 
-def check_prime(val):
-    if val < 2:
+
+# (iv)
+def is_prime(n):
+    if n < 2:
         return False
-    for i in range(2, int(val**0.5) + 1):
-        if val % i == 0:
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
             return False
     return True
 
 
-# (iv)
-primes = [x for x in numbers if check_prime(x)]
+primes = [n for n in numbers if is_prime(n)]
 print("Total primes:", len(primes))
-print("Prime values:", primes)
+print("Prime numbers:", primes)
 
 # (v)
-mode = max(set(numbers), key=numbers.count)
-print("Most frequent:", mode, "Count:", numbers.count(mode))
+most_common = max(set(numbers), key=numbers.count)
+print("Most frequent:", most_common, "Count:", numbers.count(most_common))
