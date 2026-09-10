@@ -1,0 +1,3 @@
+# (Q5)
+counts = df.groupby("category").size()
+print(counts)
