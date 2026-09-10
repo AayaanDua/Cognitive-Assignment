@@ -2,20 +2,19 @@ scores = tuple(L[:8])
 print("scores:", scores)
 
 # (i)
-top_score = max(scores)
-print("Max score:", top_score, "at index:", scores.index(top_score))
+high_score = max(scores)
+print("Max score:", high_score, "at index:", scores.index(high_score))
 low_score = min(scores)
 print("Min score:", low_score, "count:", scores.count(low_score))
 
 # (ii)
-# Tuples cannot be reversed in place because their structure is immutable
 scores_rev = list(reversed(scores))
 print("Reversed as list:", scores_rev)
 
 # (iii)
-target = int(input("Enter a score to search: "))
-if target in scores:
-    print("Found at index:", scores.index(target))
+user_score = int(input("Enter a score to search: "))
+if user_score in scores:
+    print("Found at index:", scores.index(user_score))
 else:
     print("Score not present")
 
