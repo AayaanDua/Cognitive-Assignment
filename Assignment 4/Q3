@@ -1,0 +1,12 @@
+# (Q3)
+def same_category(category_name, dataframe):
+    matched_rows = dataframe[
+        dataframe["category"].str.lower() == category_name.lower()
+    ]
+    return matched_rows["question"].tolist()
+
+
+questions_found = same_category(cat1, df)
+print(f"Questions under category '{cat1}':")
+for q in questions_found:
+    print("-", q)
