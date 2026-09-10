@@ -1,0 +1,18 @@
+# (Q2)
+def score_query(query, dataframe):
+    query_tokens = set(query.lower().split())
+    scores = []
+
+    for _, row in dataframe.iterrows():
+        entry_keywords = set(row["keywords"].lower().split())
+        matched = query_tokens.intersection(entry_keywords)
+        confidence = len(matched) / len(query_tokens) if query_tokens else 0.0
+        scores.append(round(confidence, 2))
+
+    ranked_df = dataframe.copy()
+    ranked_df["score"] = scores
+    return ranked_df.sort_values(by="score", ascending=False)
+
+
+sample_res = score_query("pay fee", df)
+print(sample_res[["question", "category", "score"]])
