@@ -1,0 +1,47 @@
+my_dict = {
+    "name": "Aman",
+    "roll_no": "102103456",
+    "branch": "Computer Engineering",
+    "age": 20,
+    "city": "Patiala",
+}
+
+# (i)
+my_dict["location"] = my_dict.pop("city")
+
+# (ii)
+my_dict["cgpa"] = 8.4
+
+# (iii)
+my_dict["age"] += 1
+
+# (iv)
+dict1 = my_dict.copy()
+dict2 = my_dict.copy()
+removed_branch = dict1.pop("branch")
+del dict2["branch"]
+
+# (v)
+for k, v in my_dict.items():
+    print(k, "→", v)
+
+# (vi)
+if "email" in my_dict:
+    print(my_dict["email"])
+else:
+    print("Email key does not exist")
+
+# (vii)
+friend_dict = {
+    "name": "Rohan",
+    "roll_no": "102103499",
+    "branch": "Mechanical",
+    "age": 21,
+    "location": "Ludhiana",
+}
+merged = {**my_dict, **friend_dict}
+print("Merged:", merged)
+
+# (viii)
+only_strings = {k: v for k, v in my_dict.items() if type(v) is str}
+print("String entries:", only_strings)
