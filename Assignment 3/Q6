@@ -1,0 +1,86 @@
+emp_data = {
+    "Employee_ID": [101, 102, 103, 104, 105],
+    "Name": ["Alice", "Bob", "Charlie", "Diana", "Edward"],
+    "Department": ["HR", "IT", "IT", "Marketing", "Sales"],
+    "Age": [29, 34, 41, 28, 38],
+    "Salary": [50000, 70000, 65000, 55000, 60000],
+    "Years_of_Experience": [4, 8, 10, 3, 12],
+    "Joining_Date": [
+        "2020-03-15",
+        "2017-07-19",
+        "2013-06-01",
+        "2021-02-10",
+        "2010-11-25",
+    ],
+    "Gender": ["Female", "Male", "Male", "Female", "Male"],
+    "Bonus": [5000, 7000, 6000, 4500, 5000],
+    "Rating": [4.5, 4.0, 3.8, 4.7, 3.5],
+}
+
+emp_df = pd.DataFrame(emp_data)
+emp_df.to_csv("employees.csv", index=False)
+
+# (a)
+print("Shape:", emp_df.shape)
+
+# (b)
+emp_df.info()
+
+# (c)
+print(emp_df.describe())
+
+# (d)
+print("First 5 rows:\n", emp_df.head(5))
+print("Last 3 rows:\n", emp_df.tail(3))
+
+# (e)(i)
+print("Average Salary:", emp_df["Salary"].mean())
+
+# (e)(ii)
+print("Total Bonus:", emp_df["Bonus"].sum())
+
+# (e)(iii)
+print("Youngest Age:", emp_df["Age"].min())
+
+# (e)(iv)
+print("Highest Rating:", emp_df["Rating"].max())
+
+# (f)
+sorted_df = emp_df.sort_values(by="Salary", ascending=False)
+print(sorted_df)
+
+
+# (g)
+def assign_category(rating):
+    if rating >= 4.5:
+        return "Excellent"
+    elif rating >= 4.0:
+        return "Good"
+    else:
+        return "Average"
+
+
+emp_df["Performance_Category"] = emp_df["Rating"].apply(assign_category)
+print(emp_df[["Name", "Rating", "Performance_Category"]])
+
+# (h)
+print("Missing values count:\n", emp_df.isnull().sum())
+
+# (i)
+emp_df.rename(columns={"Employee_ID": "ID"}, inplace=True)
+print(emp_df.columns)
+
+# (j)(i)
+exp_filter = emp_df[emp_df["Years_of_Experience"] > 5]
+print("Experience > 5 years:\n", exp_filter)
+
+# (j)(ii)
+it_filter = emp_df[emp_df["Department"] == "IT"]
+print("IT Department:\n", it_filter)
+
+# (k)
+emp_df["Tax"] = emp_df["Salary"] * 0.10
+print(emp_df[["ID", "Salary", "Tax"]])
+
+# (l)
+emp_df.to_csv("modified_employees.csv", index=False)
