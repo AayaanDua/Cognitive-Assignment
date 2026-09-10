@@ -1,0 +1,32 @@
+roll_no = "102103456"
+L = [int(ch) * 10 for ch in roll_no]
+
+# (i)
+print("L:", L)
+
+# (ii)
+L.append(45)  # adds 45 to the end of the list
+print("After append:", L)
+L.insert(2, 88)  # inserts 88 at index 2, shifting remaining items right
+print("After insert:", L)
+
+# (iii)
+L.remove(88)
+print("After remove:", L)
+L.pop()
+print("After pop:", L)
+
+# (iv)
+L.sort()
+print("Ascending:", L)
+L.sort(reverse=True)
+print("Descending:", L)
+
+# (v)
+print("First 3:", L[:3])
+print("Last 3:", L[-3:])
+
+# (vi)
+mean_val = sum(L) / len(L)
+filtered = [n for n in L if n > mean_val]
+print("Above average:", filtered)
