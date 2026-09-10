@@ -1,0 +1,28 @@
+# (Q6)
+def score_query_with_ties(query, dataframe):
+    query_tokens = set(query.lower().split())
+    scores = []
+
+    for _, row in dataframe.iterrows():
+        entry_keywords = set(row["keywords"].lower().split())
+        matched = query_tokens.intersection(entry_keywords)
+        confidence = len(matched) / len(query_tokens) if query_tokens else 0.0
+        scores.append(confidence)
+
+    temp_df = dataframe.copy()
+    temp_df["score"] = scores
+    top_score = temp_df["score"].max()
+
+    if top_score == 0:
+        return temp_df[temp_df["score"] > 0]
+
+    return temp_df[temp_df["score"] == top_score]
+
+
+print("Tie case for 'fee':")
+tie_run = score_query_with_ties("fee", df)
+print(tie_run[["question", "category", "score"]])
+
+print("\nUnique case for 'reset password':")
+clean_run = score_query_with_ties("reset password", df)
+print(clean_run[["question", "category", "score"]])
