@@ -1,0 +1,56 @@
+import pandas as pd
+
+roll_no = "1024170284"
+categories = ["billing", "account", "general"]
+
+d1 = int(roll_no[-2])  # 8 % 3 = 2 -> 'general'
+d2 = int(roll_no[-1])  # 4 % 3 = 1 -> 'account'
+
+cat1 = categories[d1 % 3]
+cat2 = categories[d2 % 3]
+
+fixed_entries = [
+    {
+        "question": "what is the annual fee",
+        "answer": "The annual fee is Rs 500.",
+        "keywords": "fee cost price charge",
+        "category": "billing",
+    },
+    {
+        "question": "how to reset password",
+        "answer": "Go to Settings > Reset Password.",
+        "keywords": "password reset login",
+        "category": "account",
+    },
+    {
+        "question": "what are your working hours",
+        "answer": "We are open 9 AM to 5 PM.",
+        "keywords": "hours timing open time",
+        "category": "general",
+    },
+    {
+        "question": "how can i pay the fee",
+        "answer": "You can pay via UPI, card, or net banking.",
+        "keywords": "pay payment upi fee",
+        "category": "billing",
+    },
+]
+
+custom_entries = [
+    {
+        "question": "where is the main campus located",
+        "answer": "The main campus is located on Bhadson Road.",
+        "keywords": "campus location address visit",
+        "category": cat1,
+    },
+    {
+        "question": "how to update registered email",
+        "answer": "Go to Profile Settings and click on Edit Email.",
+        "keywords": "email profile update account",
+        "category": cat2,
+    },
+]
+
+# (Q1)
+df = pd.DataFrame(fixed_entries + custom_entries)
+print(df)
