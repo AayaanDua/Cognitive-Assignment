@@ -1,0 +1,8 @@
+# (1)
+print(df.iloc[3:8])
+
+# (2)
+print(df.iloc[4:9, 2:5])
+
+# (3)
+print(df.iloc[:, 1:4])
