@@ -1,0 +1,2 @@
+rows_selected = df.iloc[[0, 4, 7, 8]]
+print(rows_selected)
