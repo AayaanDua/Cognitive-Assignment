@@ -1,0 +1,2 @@
+iris_df = pd.read_csv("Iris.csv")
+print(iris_df.head(5))
