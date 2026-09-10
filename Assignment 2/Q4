@@ -1,8 +1,8 @@
-digits = [int(ch) for ch in roll_no[:8]]
-A = {d * 7 for d in digits}
-B = {d * 9 for d in digits}
-print("A:", A)
-print("B:", B)
+first_8_digits = [int(d) for d in "1024170284"[:8]]
+A = {d * 7 for d in first_8_digits}
+B = {d * 9 for d in first_8_digits}
+print("Set A:", A)
+print("Set B:", B)
 
 # (vi)
 print("Union:", A.union(B))
@@ -22,6 +22,6 @@ print("Is A subset of B:", A.issubset(B))
 print("Is B superset of A:", B.issuperset(A))
 
 # (xi)
-drop_val = int(input("Enter value to discard: "))
-A.discard(drop_val)
-print("A after discard:", A)
+val_to_drop = int(input("Enter value to discard: "))
+A.discard(val_to_drop)
+print("Set A after discard:", A)
