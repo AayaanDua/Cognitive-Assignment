@@ -1,8 +1,8 @@
 my_dict = {
-    "name": "Aman",
-    "roll_no": "102103456",
-    "branch": "Computer Engineering",
-    "age": 20,
+    "name": "Aayaan",
+    "roll_no": "1024170284",
+    "branch": "Computer Science and Engineering",
+    "age": 19,
     "city": "Patiala",
 }
 
@@ -10,16 +10,16 @@ my_dict = {
 my_dict["location"] = my_dict.pop("city")
 
 # (ii)
-my_dict["cgpa"] = 8.4
+my_dict["cgpa"] = 8.5
 
 # (iii)
 my_dict["age"] += 1
 
 # (iv)
-dict1 = my_dict.copy()
-dict2 = my_dict.copy()
-removed_branch = dict1.pop("branch")
-del dict2["branch"]
+copy1 = my_dict.copy()
+copy2 = my_dict.copy()
+removed_branch = copy1.pop("branch")
+del copy2["branch"]
 
 # (v)
 for k, v in my_dict.items():
@@ -34,7 +34,7 @@ else:
 # (vii)
 friend_dict = {
     "name": "Rohan",
-    "roll_no": "102103499",
+    "roll_no": "1024170999",
     "branch": "Mechanical",
     "age": 21,
     "location": "Ludhiana",
@@ -43,5 +43,5 @@ merged = {**my_dict, **friend_dict}
 print("Merged:", merged)
 
 # (viii)
-only_strings = {k: v for k, v in my_dict.items() if type(v) is str}
-print("String entries:", only_strings)
+str_dict = {k: v for k, v in my_dict.items() if type(v) is str}
+print("String entries only:", str_dict)
